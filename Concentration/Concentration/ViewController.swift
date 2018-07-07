@@ -12,6 +12,13 @@ class ViewController: UIViewController {
 
     lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     
+    @IBAction func newGame(_ sender: UIButton) {
+        emojiChoices = ["👻", "🎃", "😱", "😼", "🙀", "😈"]
+        flipCount = 0
+        game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        updateViewFromModel()
+    }
+    
     var flipCount = 0 {
         didSet {
             flipCountLabel.text = "Flips: \(flipCount)"
