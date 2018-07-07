@@ -37,6 +37,10 @@ class Concentration {
             let card = Card()
             cards += [card, card]
         }
-        // TODO: Shuffle the cards
+        for index in 0..<cards.count {
+            let randomShift = Int(arc4random_uniform(UInt32(cards.count - index)))
+            cards.swapAt(index, index + randomShift)
+        }
+
     }
 }
